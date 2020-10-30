@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html'%}
+
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>SafeSpace</title>
+    {% endif %}
+    {% block styles %} 
+  {{ super() }}
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link href="https://fontawesome.com/icons/blog?style=solid" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" type="text/css">
+  
+  {% endblock %}
+</head>
+<body>
+  <div class="container-fluid">
+      {% block content %}
+
+      {% endblock%}
+    
+  </div>
+</body>
+
+</html>
