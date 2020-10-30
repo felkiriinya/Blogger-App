@@ -14,7 +14,7 @@ login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 
-# photos = UploadSet('photos',IMAGES)
+photos = UploadSet('photos',IMAGES)
 
 def create_app(config_name):
 
@@ -30,7 +30,7 @@ def create_app(config_name):
     mail.init_app(app)
     
     # configure UploadSet
-    # configure_uploads(app)
+    configure_uploads(app,photos)
 
 
     # Registering the blueprint

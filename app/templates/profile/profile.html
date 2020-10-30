@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/profile.css')}}" type="text/css">
+{% endblock styles%}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+    <!-- displaying  Username-->
+        <div class="col-md-2"></div>
+        <div class="col-md-5 text-left profile">
+            <h3> {{user.username| capitalize}}'s Profile </h3>
+            <br>
+            <!--Displaying user bio-->
+            {% if user.bio %}
+            <p> {{user.bio}}</p>
+            {%else%}
+            <p> You have no bio </p>
+            {% endif %}
+            
+            {% if user == current_user %}
+            <a href="{{url_for('main.update_profile',uname=user.username)}}" >Add or Edit your Bio</a>
+            {% endif %} 
+            <br><br>
+            {% if user.profile_pic_path %}
+            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+            {%else%}
+            <p >You have no profile picture</p>
+            <p >Add a profile picture</p>
+
+            {% if user == current_user %}
+               
+                <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+            
+                <input type="file"  name="photo" class="form-control" style="width: 60%;" required>
+                <br>
+                <input type="submit">
+                </form>
+            {% endif %}
+            {% endif %}
+
+            
+        </div>
+
+        <div class="col-md-5">
+            
+            
+              
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

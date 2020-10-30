@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body{
+   
+    background-image: url(../images/page.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+   
+    overflow: hidden;
+}
+img{
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 1%;
+    margin-bottom: 3%;
+}
+.row{
+    padding-top: 2%;
+}
+.profile{
+    margin-top: 4%;
+    /* position: absolute; */
+    width: 430px;
+    height: 430px;
+    left: 200px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+}
+.profile h3{
+    margin-left: 25%;
+        left: 205px;
+        
+        font-family:  'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    
+   
+    color: #000000;
+}
+.profile input[type=submit]{
+    width: 270px;
+    height: 40px;
+    background-color: #030303;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family:'Poppins', sans-serif ;
+    line-height: 22px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-left: 15%;
+    
+}
+.profile p{
+    font-family:'Poppins', sans-serif ;
+}
