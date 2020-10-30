@@ -14,11 +14,11 @@ body{
 }
 
 .login-form{
-    margin-top: 8%;
-    position: absolute;
+    margin-top: 6%;
+    /* position: absolute; */
     width: 430px;
     height: 430px;
-    left: 380px;
+    left: 200px;
 
     background: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
@@ -83,10 +83,10 @@ margin-left: 15%;
 }
 .signup-form{
     margin-top: 3%;
-    position: absolute;
+    /* position: absolute; */
     width: 430px;
     height: 550px;
-    left: 380px;
+    left: 200px;
 
     background: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
@@ -108,7 +108,7 @@ margin-left: 15%;
     outline: none;
     background: transparent;
     border: 1px solid black;
-    width: 270px;
+    width: 300px;
     margin-left: 15%;
     
     height: 35px;
