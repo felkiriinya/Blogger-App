@@ -9,15 +9,14 @@
                 <span class="icon-bar"></span>
             </div>
             
-            <a class="navbar-brand" id="pitch" href="/" style="font-size: 25px;"> SafeSpace </a>
-                
-                <a class="navbar-brand"></a>
+            <a class="navbar-brand" id="pitch" href="/" style="font-size: 25px;">Blogger </a>
+            
                 
             </div>
             <div class="navbar-collapse collapse" style="float: left;">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">Blogs</a>
+                    <li><a  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;" href="">Blogs</a>
                         
                     </li>
                     <li><a href=""> Add a blog</a></li>
@@ -27,8 +26,8 @@
             <div class="navbar-collapse collapse " >
               
                <a class="btn my-2 my-sm-0" 
-                    href="" style="font-size: 14px; margin: 10px;  border-radius: 10px;">Sign In</a>
-                   <a class=" btn my-2 my-sm-0" href="" style="font-size: 14px; margin: 10px;  border-radius: 10px;">Sign Up</a>
+                    href="{{url_for('auth.login')}}" style="font-size: 14px; margin: 10px;  border-radius: 10px;">Sign In</a>
+                   <a class=" btn my-2 my-sm-0" href="{{url_for('auth.register')}}" style="font-size: 14px; margin: 10px;  border-radius: 10px;">Sign Up</a>
                 
               
             </div>

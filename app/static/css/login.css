@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body{
+   
+    background-image: url(../images/page.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+   
+    overflow: hidden;
+}
+
+.login-form{
+    margin-top: 8%;
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    left: 380px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+}
+.login-form h2{
+    margin-left: 37%;
+        left: 205px;
+        
+        font-family:  'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    /* padding-bottom: 1%; */
+   
+    color: #000000;
+
+}
+.login-form input{
+    outline: none;
+    background: transparent;
+    border: 1px solid black;
+    width: 270px;
+    margin-left: 15%;
+    
+    height: 35px;
+    
+    /* margin-bottom: 3%;
+    margin-top: 2%; */
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+.login-form label{
+    
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    
+   
+    margin-top: 1%;
+   
+margin-left: 15%;
+    color: #000000;
+
+
+}
+.login-form input[type=submit]{
+    width: 270px;
+    height: 40px;
+    background-color: #030303;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Montserrat;
+    line-height: 22px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    /* margin-top: 6%; */
+    
+}
+.signup-form{
+    margin-top: 3%;
+    position: absolute;
+    width: 430px;
+    height: 550px;
+    left: 380px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+}
+.signup-form h2{
+    margin-left: 37%;
+        left: 205px;
+        
+        font-family:  'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    /* padding-bottom: 1%; */
+   
+    color: #000000;
+
+}
+.signup-form input{
+    outline: none;
+    background: transparent;
+    border: 1px solid black;
+    width: 270px;
+    margin-left: 15%;
+    
+    height: 35px;
+    
+    /* margin-bottom: 3%;
+    margin-top: 2%; */
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+.signup-form label{
+    
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    
+   
+    margin-top: 1%;
+   
+margin-left: 15%;
+    color: #000000;
+
+
+}
+.signup-form input[type=submit]{
+    width: 270px;
+    height: 40px;
+    background-color: #030303;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Montserrat;
+    line-height: 22px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    /* margin-top: 6%; */
+    
+}
