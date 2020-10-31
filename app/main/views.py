@@ -81,28 +81,27 @@ def update_pic(uname):
 @main.route('/blogs')
 def blogs():
     title = 'Blogs Added'
-    blog = Blog.query.filter_by().first()
+    blogs = Blog.query.order_by(
+        Blog.posted_on.desc())
 
-    return render_template('blogs.html', title=title, blog =blog)
+    return render_template('blogs.html',blogs = blogs, title=title)
 
 @main.route('/blogs/new', methods = ['GET','POST'])
 @login_required
 def new_blog():
     
     form = AddBlog()
-    # my_upvotes = Upvote.query.filter_by(pitch_id = Pitch.id)
+    
     if form.validate_on_submit():
-        # pitcher = form.pitcher.data
-        description = form.description.data
-        title = form.title.data 
-        owner_id = current_user
-        blogger = current_user
-        new_blog = Blog(owner_id =current_user._get_current_object().id,blogger = blogger,title = title,description=description)
-        db.session.add(new_blog)
+        blog = Blog(title=form.title.data, content=form.content.data,user=current_user)
+        
+        db.session.add(blog)
         db.session.commit()
-        
-        
+
+       
         return redirect(url_for('main.blogs'))
+        
+    
     return render_template('add_blog.html',form=form)
 
 

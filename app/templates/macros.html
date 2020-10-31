@@ -1,33 +1,21 @@
 {% extends 'base.html'%}
-{% macro displayBlog(blogs)%}
 
-<div class="row">
-    {%if blogs %}
-    {% for blog in blogs%}
-    <div class="col-sm-12">
-        <div class="cards">
-            <div class="card">
-                <div class="card-title">
-                    {{blog.title}}
-                </div>
-                <div class="card-body">
-                <blockquote class="blockquote mb-0 card-body">
-                    <p>{{blog.description}}</p>
-                    <!-- <footer class="blockquote-footer">
-                        <cite title="Source Title" style="color: black;">Posted by {blog.blogger}}</cite>
-                        <small style="float:right; font-size:0.7rem;"></b> On {{post.posted_at.strftime('%B %d, %Y')}}</small>
-                    </footer> -->
-                
-                  </blockquote>
-                </div>
-               
-            </div>
 
-        </div>
-    </div>
-    {% endfor %}
+{% macro displayBlog(blogs) %}
+<ul>
+
+			
+			{% for blog in blogs %}
+				<div class="row text-center">
+						<a><p style="color:rgb(241, 233, 233); font-size: 18px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">{{ blog.description }} <span style="font-size: 13px;">{{blog.title}}</span> </p></a>
+						<small style="color:rgb(241, 233, 233); font-size: 15px;  font-family: Arial, Helvetica, sans-serif;"> </small>
+				</div>
+			{% endfor %}
+			
+
+	</ul>
 	
-	{% endif %}
+			
 
-</div>
+
 {% endmacro %}
