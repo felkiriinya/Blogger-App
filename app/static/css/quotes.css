@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
+body{
+   
+    background-image: url(../images/page.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+   
+    overflow: hidden;
+}
 .card {
     /*animates card elements*/
     margin: 3%;
     width: 80rem;
+    background-color: rgba(255, 255, 255, 0.562);
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(48, 6, 42, 0.35);
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
   }
 
 .card:hover {
@@ -19,9 +31,13 @@
     /*allows for cards to append side by side*/
     display: flex;
     flex-wrap: wrap;
+    margin-top:5%;
     margin-left: 15%;
+    
+    
   }
   .blockquote {
     font-size: 1.5rem;
     font-family:  'Poppins', sans-serif;
+    color: black;
   }
