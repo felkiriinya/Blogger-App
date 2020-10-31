@@ -1,13 +1,16 @@
 from flask import render_template,request,redirect,url_for,abort,flash,session
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Blog,Quote,Comment
+from ..models import User,Blog,Quote,Comment,Subscribers
 from .forms import UpdateProfile,AddBlog,CommentForm
+ 
 from datetime import datetime
+from ..email import mail_message,notification_message
 
 from .. import db,photos
 from ..requests import get_quote
 from flask.views import View,MethodView
+
 
 @main.route('/')
 def index():
@@ -84,25 +87,26 @@ def blogs():
     blogs = Blog.query.order_by(
         Blog.posted_on.desc())
 
+    
+
     return render_template('blogs.html',blogs = blogs, title=title)
 
 @main.route('/blogs/new', methods = ['GET','POST'])
 @login_required
 def new_blog():
-    
+    title = 'New | Blog '
     form = AddBlog()
     
     if form.validate_on_submit():
         blog = Blog(title=form.title.data, content=form.content.data,user=current_user)
-        
+       
         db.session.add(blog)
         db.session.commit()
-
-       
+        
         return redirect(url_for('main.blogs'))
         
     
-    return render_template('add_blog.html',form=form)
+    return render_template('add_blog.html',form=form, title = title)
 
 
 @main.route('/comment/new/<int:blog_id>', methods = ['GET','POST'])
@@ -113,7 +117,7 @@ def new_comment(blog_id):
     if form.validate_on_submit():
         comment = form.comment.data
 
-        new_comment = Comment(comment = comment,blog_id = blog_id,user = current_user)
+        new_comment = Comment(comment = comment,blog_id = blog_id, user_id = current_user._get_current_object().id)
         db.session.add(new_comment)
         db.session.commit()
 
@@ -152,3 +156,4 @@ def delete_post(blog_id):
     db.session.commit()
     
     return redirect(url_for('main.blogs'))    
+

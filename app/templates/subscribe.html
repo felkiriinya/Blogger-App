@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{%block content%}
+<div class="col-md-4">
+    
+    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST" style="margin-bottom: 20px">
+      <div class="md-form form-group">
+        <label class="white-color">Email Address...</label><br>
+        <input type="email" class="form-control " name="subscriber" required>
+      </div><br><br>
+      <div class="md-form form-group">
+        <button class="btn btn-info" id="subs">Subscribe</button>
+      </div>
+    </form>
+</div>
+{%endblock%}
