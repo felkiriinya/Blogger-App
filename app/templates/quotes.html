@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/quotes.css')}}" type="text/css">
+{% endblock styles%}
+
+{%block content%}
+
+
+
+<div class="col-sm-12">
+    <div class="cards">
+        <div class="card">
+            <div class="card-body" >
+            <blockquote class="blockquote mb-0 card-body">
+                <p>{{quote.quote}}</p>
+                <footer class="blockquote-footer">
+                    <cite title="Source Title" style="color: black;">{{quote.author| capitalize}}</cite>
+                    
+                </footer>
+                
+              </blockquote>
+            </div>
+            
+
+    </div>
+</div>
+
+{%endblock%}
