@@ -1,8 +1,8 @@
 from flask import render_template,request,redirect,url_for,abort,flash,session
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Blog,Quote
-from .forms import UpdateProfile,AddBlog
+from ..models import User,Blog,Quote,Comment
+from .forms import UpdateProfile,AddBlog,CommentForm
 from datetime import datetime
 
 from .. import db,photos
@@ -105,3 +105,50 @@ def new_blog():
     return render_template('add_blog.html',form=form)
 
 
+@main.route('/comment/new/<int:blog_id>', methods = ['GET','POST'])
+
+def new_comment(blog_id):
+    form = CommentForm()
+    blog=Blog.query.get(blog_id)
+    if form.validate_on_submit():
+        comment = form.comment.data
+
+        new_comment = Comment(comment = comment,blog_id = blog_id,user = current_user)
+        db.session.add(new_comment)
+        db.session.commit()
+
+
+        return redirect(url_for('.new_comment', blog_id= blog_id))
+
+    all_comments = Comment.query.filter_by(blog_id = blog_id).all()
+    return render_template('add_comment.html', form = form, comment = all_comments, blog = blog )
+
+@main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
+
+def updateblog(blog_id):
+    blog = Blog.query.get(blog_id)
+    if blog.user != current_user:
+        abort(403)
+    form = AddBlog()
+    if form.validate_on_submit():
+        blog.title = form.title.data
+        blog.content = form.content.data
+        db.session.commit()
+       
+        return redirect(url_for('main.blogs',id = blog.id)) 
+    if request.method == 'GET':
+        form.title.data = blog.title
+        form.content.data = blog.content
+    return render_template('add_blog.html', form = form)
+
+
+@main.route('/blog/<blog_id>/delete', methods = ['POST'])
+
+def delete_post(blog_id):
+    blog = Blog.query.get(blog_id)
+    if blog.user != current_user:
+        abort(403)
+    db.session.delete(blog)
+    db.session.commit()
+    
+    return redirect(url_for('main.blogs'))    

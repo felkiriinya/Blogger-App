@@ -11,14 +11,27 @@
 
 <div class="row">
     {% for blog in blogs %}
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
         <div class="card">
             
             <div class="card-body" >
             <blockquote class=" card-body">
                 <h2 class="text-center" style="font-size:1.5rem; font-family: 'Poppins', sans-serif; ">{{blog.title}}</h2>
                 <p style="font-size: 1.3rem;">{{blog.content}}</p>
+                {% if blog.user == current_user %}
+            
+            
+    
+           
+                <a class="btn btn-sm" href="{{ url_for('main.updateblog', blog_id=blog.id) }}" style="border-radius: 5px; background-color: rgb(10, 10, 10); color: white;">Update</a>
+                <button type="button" class="btn btn-sm " data-toggle="modal"
+                data-target="#deleteModal" style="background-color: black; color: white; font-family: 'Poppins', sans-serif ;">Delete</button>
+
+               
+           
+                {% endif %}
+               
                 <footer class="blockquote-footer">
                     <cite title="Source Title" style="color: black; font-size:1.2rem ;" >{{ blog.user.username }}</cite>
                     <small style="float:right; font-size:0.9rem;">{{ blog.posted_on.strftime('%d-%m-%Y') }}</small>
@@ -30,7 +43,33 @@
         
         </div>
     </div>
-    
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel del">Are you sure you want to delete this blog?</h5>
+            <div class="row">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button> -->
+
+            <div class="modal-footer">
+                <div class="">
+                    <form action="{{ url_for('main.delete_post', blog_id=blog.id) }}" method="POST"  style="display: inline; float: left !important;">
+                        <button type="submit" class="btn btn-sm" style="padding-top: 5%; padding-bottom: 6%; border-radius: 5px; background-color: black; font-family:'Poppins', sans-serif  ; color: white;">Delete blog</button>
+                    </form>
+                <button type="button" class="btn btn-sm " data-dismiss="modal"style="background-color: black; color: white; font-family: 'Poppins', sans-serif ;" >Cancel</button>
+                </div>
+
+                
+            </div>
+            
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
     {% endfor %}
 </div>
 

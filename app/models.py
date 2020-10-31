@@ -88,7 +88,7 @@ class Comment(db.Model):
 
 
     def __repr__(self):
-        return f'Comment {self.comment}'
+        return f"Comment : id: {self.id} comment: {self.comment}"
 
 class Quote:
     """
