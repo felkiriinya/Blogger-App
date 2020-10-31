@@ -92,7 +92,7 @@ def blogs():
     return render_template('blogs.html',blogs = blogs, title=title)
 
 @main.route('/blogs/new', methods = ['GET','POST'])
-@login_required
+
 def new_blog():
     title = 'New | Blog '
     form = AddBlog()
