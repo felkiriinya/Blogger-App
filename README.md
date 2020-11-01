@@ -4,11 +4,14 @@
 Blogger is a blog app that allows people from around the world to write posts on anything they want to put out there.
 
 ![landing](./app/static/images/landing.png)
+![blogs](./app/static/images/blogs.png)
 
 
 ## Live link
 Visit the application on https://fel-blogger.herokuapp.com/ .
 
+## Figma Design
+This is the link to my [figma](https://www.figma.com/file/vpdhNbdUaeCVObNkpgoh4w/Untitled?node-id=0%3A1) design.
 ## Development
 To make advancements/modifications, follow these steps:
 
