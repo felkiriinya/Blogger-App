@@ -13,9 +13,9 @@
       <div class="col-md-8 comment">
           <h2 class="text-center" style=" font-family: 'Poppins', sans-serif;">Comments</h2>
           {% for comment in comment %}
-          <h2 class="text-center" style="font-size:1.5rem; font-family: 'Poppins', sans-serif; ">{{comment.comment}}</h2>
-          <p style="font-size: 1.3rem;" class="text-center">Posted
-            By:{{comment.user.username}}</p> 
+          <h2 class="" style="font-size:1.5rem; font-family: 'Poppins', sans-serif; ">{{comment.comment}} <span  style="font-size: 1.3rem; font-weight: lighter;" class="">Posted
+            By:{{comment.user.username}}</span></h2>
+            
             {% endfor %} 
             
             

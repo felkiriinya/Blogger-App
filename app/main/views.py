@@ -134,6 +134,7 @@ def new_comment(blog_id):
     
     return render_template('add_comment.html', form = form,blog = blog,title=title  )
 
+
 @main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
 
 def updateblog(blog_id):
