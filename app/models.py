@@ -86,6 +86,11 @@ class Comment(db.Model):
         comment = Comment.query.all(id=id)
         return comment
 
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(blog_id=id).all()
+        return comments 
+        
 
     def __repr__(self):
         return f"Comment : id: {self.id} comment: {self.comment}"

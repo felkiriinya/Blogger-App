@@ -18,7 +18,7 @@
             <div class="card-body" >
             <blockquote class=" card-body">
                 <h2 class="text-center" style="font-size:1.5rem; font-family: 'Poppins', sans-serif; ">{{blog.title}}</h2>
-                <p style="font-size: 1.3rem;">{{blog.content}}</p>
+                <p style="font-size: 1.3rem;">{{blog.content}}</p> 
                 {% if blog.user == current_user %}
             
             
@@ -31,9 +31,10 @@
                
            
                 {% endif %}
-               
+                <a href="{{url_for('main.new_comment',blog_id = blog.id)}}" class="btn btn-sm "style="border-radius: 5px; background-color: rgb(10, 10, 10); color: white;">Add a Comment</a>
+                <a href="/view_comments/{{blog.id}}" class="btn btn-sm" style="border-radius: 5px; background-color: rgb(10, 10, 10); color: white;">View Comments</a>
                 <footer class="blockquote-footer">
-                    <!-- <a href="{{url_for('main.new_comment',blog_id = blog.id)}}" class="btn btn-info"> Add a comment</a> -->
+               
                     <cite title="Source Title" style="color: black; font-size:1.2rem ;" >{{ blog.user.username }}</cite>
                     <small style="float:right; font-size:0.9rem;">{{ blog.posted_on.strftime('%d-%m-%Y') }}</small>
                 </footer>

@@ -11,6 +11,16 @@ body{
     overflow-x: hidden;
    
 }
+.comment{
+  margin-top: 6%;
+    
+    width: 430px;
+    height: 430px;
+    left: 200px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+}
 .card {
     /*animates card elements*/
     margin: 3%;

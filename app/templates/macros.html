@@ -1,24 +1,17 @@
 <!-- {% extends 'base.html'%}
 
+{% macro displayComments(comment_list) %}
+{% for comment in comment_list %}
+ <div class="row">
+ <p>{{ comment.comment }}</p>
+ <p>
+  <strong>Author:</strong>
+ <span class="diff"> {{ comment.user.username }}</span>
+  </p>
+  <hr>
+ </div>
+{% endfor %}
 
-{% macro displayComment(comments) %}
-<ul>
+{% endmacro %}		
 
-			{% if comments %}
-			{% for comment in comments %}
-				<div class="row text-center">
-						<a><p style="color:rgb(241, 233, 233); font-size: 18px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">{{ comment.comment }} <span style="font-size: 13px;">posted by {{comment.user.username}}</span> </p></a>
-						<small style="color:rgb(241, 233, 233); font-size: 15px;  font-family: Arial, Helvetica, sans-serif;"> </small>
-				</div>
-			{% endfor %}
-			{% else %}
-
-			<h3>This post does not does not have any comments.</h3>
-			{%endif%}
-
-	</ul>
-	
-			
-
-
-{% endmacro %} -->
+ -->
